@@ -32,32 +32,28 @@ export const Pricing = () => {
             </div>
           </div>
 
-          <div className="bg-sky-200 -mt-7 rounded-lg flex flex-col">
-            <div className="text-custom-black text-center font-medium mb-1">
-              Recommended
+          <div className="rounded-lg shadow-md flex flex-col transition-all duration-300 hover:shadow-lg">
+            <div className="bg-sky-100 -mt-7 rounded-lg flex flex-col">
+              <div className="text-custom-black text-center font-medium mb-1">
+                Recommended
+              </div>
             </div>
-            <div className="rounded-lg shadow-md flex flex-col transition-all duration-300 hover:shadow-lg">
-              <div className="bg-custom-black p-6 rounded-t-lg flex flex-col gap-3">
-                <h1 className="text-4xl font-bold text-custom-white">Pro</h1>
-                <div>
-                  <span className="text-4xl font-bold text-custom-white">
-                    $5
-                  </span>{" "}
-                  <span className="font-light text-custom-white">
-                    USD/month
-                  </span>
-                </div>
+            <div className="bg-custom-black p-6 rounded-t-lg flex flex-col gap-3">
+              <h1 className="text-4xl font-bold text-custom-white">Pro</h1>
+              <div>
+                <span className="text-4xl font-bold text-custom-white">$5</span>{" "}
+                <span className="font-light text-custom-white">USD/month</span>
               </div>
+            </div>
 
-              <div className="bg-custom-secondary p-6 flex flex-col gap-5 rounded-b-lg">
-                <p className="text-custom-black font-light">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
-                  aspernatur!
-                </p>
-                <button className="bg-custom-black text-custom-white rounded-full py-3 px-4 cursor-pointer hover:bg-custom-black/80">
-                  Get Pro
-                </button>
-              </div>
+            <div className="bg-custom-secondary-20 p-6 flex flex-col gap-5 rounded-b-lg">
+              <p className="text-custom-black font-light">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
+                aspernatur!
+              </p>
+              <button className="bg-custom-black text-custom-white rounded-full py-3 px-4 cursor-pointer hover:bg-custom-black/80">
+                Get Pro
+              </button>
             </div>
           </div>
 
