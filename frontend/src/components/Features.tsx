@@ -14,7 +14,7 @@ export const Features = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-7xl mx-auto">
-          <div className="p-6 bg-zinc-100 rounded-lg shadow-md flex flex-col items-center text-center gap-5 transition-all duration-300 hover:shadow-lg hover:bg-zinc-50">
+          <div className="p-6 bg-custom-secondary-20 rounded-lg shadow-md flex flex-col items-center text-center gap-5 transition-all duration-300 hover:shadow-lg">
             <img src="/brain.svg" className="w-12 h-12" alt="mobile" />
             <h3 className="text-xl font-semibold">
               Designed for Better Recall
@@ -25,7 +25,7 @@ export const Features = () => {
             </p>
           </div>
 
-          <div className="p-6 bg-zinc-100 rounded-lg shadow-md flex flex-col items-center text-center gap-5 transition-all duration-300 hover:shadow-lg hover:bg-zinc-50">
+          <div className="p-6 bg-custom-secondary-20 rounded-lg shadow-md flex flex-col items-center text-center gap-5 transition-all duration-300 hover:shadow-lg">
             <img
               src="/lightning.svg"
               className="w-12 h-12 mb-0"
@@ -37,7 +37,7 @@ export const Features = () => {
             </p>
           </div>
 
-          <div className="p-6 bg-zinc-100 rounded-lg shadow-md flex flex-col items-center text-center gap-5 transition-all duration-300 hover:shadow-lg hover:bg-zinc-50">
+          <div className="p-6 bg-custom-secondary-20 rounded-lg shadow-md flex flex-col items-center text-center gap-5 transition-all duration-300 hover:shadow-lg">
             <img src="/bullseye.svg" className="w-12 h-12" alt="bullseye" />
             <h3 className="text-xl font-semibold">Focused on What Matters</h3>
             <p className="text-gray-500">
@@ -46,7 +46,7 @@ export const Features = () => {
             </p>
           </div>
 
-          <div className="p-6 bg-zinc-100 rounded-lg shadow-md flex flex-col items-center text-center gap-5 transition-all duration-300 hover:shadow-lg hover:bg-zinc-50">
+          <div className="p-6 bg-custom-secondary-20 rounded-lg shadow-md flex flex-col items-center text-center gap-5 transition-all duration-300 hover:shadow-lg">
             <img src="/mobile.svg" className="w-12 h-12" alt="mobile" />
             <h3 className="text-xl font-semibold">Study Anywhere</h3>
             <p className="text-gray-500">

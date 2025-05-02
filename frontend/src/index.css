@@ -2,7 +2,9 @@
 
 @theme {
   --color-custom-white: #fff9f9;
-  --color-custom-primary: #00a7c5;
+  --color-custom-primary: #41bed7;
   --color-custom-black: #00252c;
-  --color-custom-ascent: #3da9fc;
+  --color-custom-ascent: #41dfff;
+  --color-custom-secondary: #7cdff2;
+  --color-custom-secondary-20: hsl(190, 82%, 72%, 20%);
 }
