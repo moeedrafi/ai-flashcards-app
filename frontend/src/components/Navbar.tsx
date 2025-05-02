@@ -27,8 +27,12 @@ export const Navbar = () => {
         </div>
 
         <div className="space-x-4">
-          <button>Sign In</button>
-          <button>Create your account</button>
+          <button className="px-3 py-2.5 rounded-lg bg-custom-primary text-custom-white cursor-pointer hover:bg-custom-ascent">
+            Sign In
+          </button>
+          <button className="border-2 px-3 py-2 rounded-xl border-custom-primary cursor-pointer hover:bg-sky-50">
+            Create your account
+          </button>
         </div>
       </nav>
     </div>
