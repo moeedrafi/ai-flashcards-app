@@ -11,49 +11,53 @@ export const Pricing = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
           <div className="rounded-lg shadow-md flex flex-col transition-all duration-300 hover:shadow-lg">
             <div className="bg-custom-black p-6 rounded-t-lg flex flex-col gap-3">
-              <h1 className="text-4xl font-bold text-custom-white">Free</h1>
+              <h3 className="text-4xl font-bold text-custom-white">Free</h3>
               <div>
                 <span className="text-4xl font-bold text-custom-white">$0</span>{" "}
                 <span className="font-light text-custom-white">USD/month</span>
               </div>
             </div>
 
-            <div className="bg-custom-secondary-20 p-6 flex flex-col gap-5">
+            <div className="bg-custom-secondary-20 p-6 flex flex-col gap-5 rounded-b-lg">
               <p className="text-custom-black font-light">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
                 aspernatur!
               </p>
-              <button className="border border-custom-primary text-custom-black rounded-full py-3 px-4 cursor-pointer">
+              <button className="border border-custom-black text-custom-black rounded-full py-3 px-4 cursor-pointer hover:bg-custom-black hover:text-custom-white">
                 Join for Free
               </button>
             </div>
           </div>
 
-          <div className="rounded-lg shadow-md flex flex-col transition-all duration-300 hover:shadow-lg">
-            <div className="bg-custom-black p-6 rounded-t-lg flex flex-col gap-3">
-              <div className="flex justify-between">
+          <div className="bg-sky-200 -mt-7 rounded-lg flex flex-col">
+            <div className="text-custom-black text-center font-medium mb-1">
+              Recommended
+            </div>
+            <div className="rounded-lg shadow-md flex flex-col transition-all duration-300 hover:shadow-lg">
+              <div className="bg-custom-black p-6 rounded-t-lg flex flex-col gap-3">
                 <h1 className="text-4xl font-bold text-custom-white">Pro</h1>
-                <button className="bg-custom-primary text-custom-white rounded-lg py-1 px-2 cursor-pointer">
-                  Recommended
+                <div>
+                  <span className="text-4xl font-bold text-custom-white">
+                    $5
+                  </span>{" "}
+                  <span className="font-light text-custom-white">
+                    USD/month
+                  </span>
+                </div>
+              </div>
+
+              <div className="bg-custom-secondary p-6 flex flex-col gap-5 rounded-b-lg">
+                <p className="text-custom-black font-light">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
+                  aspernatur!
+                </p>
+                <button className="bg-custom-black text-custom-white rounded-full py-3 px-4 cursor-pointer hover:bg-custom-black/80">
+                  Get Pro
                 </button>
               </div>
-              <div>
-                <span className="text-4xl font-bold text-custom-white">$5</span>{" "}
-                <span className="font-light text-custom-white">USD/month</span>
-              </div>
-            </div>
-
-            <div className="bg-custom-secondary-20 p-6 flex flex-col gap-5">
-              <p className="text-custom-black font-light">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
-                aspernatur!
-              </p>
-              <button className="bg-custom-primary text-custom-black rounded-full py-3 px-4 cursor-pointer">
-                Get Pro
-              </button>
             </div>
           </div>
 
@@ -73,7 +77,7 @@ export const Pricing = () => {
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
                 aspernatur!
               </p>
-              <button className="border border-custom-primary text-custom-black rounded-full py-3 px-4 cursor-pointer">
+              <button className="border border-custom-black text-custom-black rounded-full py-3 px-4 cursor-pointer hover:bg-custom-black hover:text-custom-white">
                 Get Premium
               </button>
             </div>
