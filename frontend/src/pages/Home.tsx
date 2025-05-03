@@ -1,7 +1,8 @@
-import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { Features } from "@/components/Features";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import { Pricing } from "@/components/Pricing";
+import { Features } from "@/components/Features";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       <Hero />
       <Features />
       <Pricing />
+      <Footer />
     </section>
   );
 };
