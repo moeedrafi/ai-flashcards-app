@@ -27,12 +27,16 @@ export const Navbar = () => {
         </div>
 
         <div className="space-x-4">
-          <button className="px-3 py-2.5 rounded-lg bg-custom-primary text-custom-white cursor-pointer hover:bg-custom-ascent">
-            Sign In
-          </button>
-          <button className="hidden md:inline border-2 px-3 py-2 rounded-xl border-custom-primary cursor-pointer hover:bg-sky-50">
-            Create your account
-          </button>
+          <Link to="/login">
+            <button className="px-3 py-2.5 rounded-lg bg-custom-primary text-custom-white cursor-pointer hover:bg-custom-ascent">
+              Sign In
+            </button>
+          </Link>
+          <Link to="/register">
+            <button className="hidden md:inline border-2 px-3 py-2 rounded-xl border-custom-primary cursor-pointer hover:bg-sky-50">
+              Create your account
+            </button>
+          </Link>
         </div>
       </nav>
     </div>

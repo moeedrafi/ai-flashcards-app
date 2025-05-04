@@ -33,7 +33,7 @@ export const Card = ({
 
       {/* FOOTER */}
       {to && label && (
-        <footer className="w-full text-center font-semibold">
+        <footer className="w-full text-center tracking-tight font-medium">
           <Link
             aria-label={`Go to ${label}`}
             to={to}
