@@ -5,14 +5,14 @@ export const Navbar = () => {
   const routes = useRoutes();
 
   return (
-    <div className="container mx-auto px-4 py-4 sm:px-8 md:px-16">
+    <div className="px-8 py-4 sm:px-16 md:px-32">
       <nav className="flex items-center justify-between relative">
         <Link to="/" className="text-xl z-10 font-bold">
           LOGO
         </Link>
 
-        <div className="absolute left-0 right-0 flex justify-center">
-          <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden lg:flex pl-52 justify-center">
+          <div className="flex items-center space-x-6">
             {routes.map(({ active, href, label }) => (
               <Link
                 to={href}
@@ -30,7 +30,7 @@ export const Navbar = () => {
           <button className="px-3 py-2.5 rounded-lg bg-custom-primary text-custom-white cursor-pointer hover:bg-custom-ascent">
             Sign In
           </button>
-          <button className="border-2 px-3 py-2 rounded-xl border-custom-primary cursor-pointer hover:bg-sky-50">
+          <button className="hidden md:inline border-2 px-3 py-2 rounded-xl border-custom-primary cursor-pointer hover:bg-sky-50">
             Create your account
           </button>
         </div>

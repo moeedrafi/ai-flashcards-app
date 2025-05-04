@@ -1,8 +1,8 @@
-import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Pricing } from "@/components/Pricing";
-import { Features } from "@/components/Features";
+import { Hero } from "@/components/home/Hero";
+import { Pricing } from "@/components/home/Pricing";
+import { Features } from "@/components/home/Features";
 
 const Home = () => {
   return (
