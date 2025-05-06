@@ -1,16 +1,14 @@
+import { Heading } from "@/components/Heading";
+
 export const Pricing = () => {
   return (
     <section className="py-16">
       <div className="px-8 md:px-16 lg:px-32">
         {/* HEADING */}
-        <div className="text-center mb-12">
-          <h1 className="text-custom-black text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Pricing
-          </h1>
-          <p className="text-custom-black font-light text-lg">
-            Select the pricing that suits you best
-          </p>
-        </div>
+        <Heading
+          heading="Pricing"
+          subHeading="Select the pricing that suits you best"
+        />
 
         {/* CARDS */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-lg md:max-w-5xl mx-auto">

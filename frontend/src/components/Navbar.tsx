@@ -1,5 +1,5 @@
-import { useRoutes } from "@/hooks/useRoutes";
 import { Link } from "react-router";
+import { useRoutes } from "@/hooks/useRoutes";
 
 export const Navbar = () => {
   const routes = useRoutes();
