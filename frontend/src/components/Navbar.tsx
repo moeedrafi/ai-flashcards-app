@@ -15,6 +15,7 @@ export const Navbar = () => {
           <div className="flex items-center space-x-6">
             {routes.map(({ active, href, label }) => (
               <Link
+                key={href}
                 to={href}
                 className={`${
                   active && "underline"

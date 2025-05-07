@@ -1,3 +1,5 @@
+import { AI } from "../utils/gemini.js";
+import { ApiResponse } from "../utils/ApiResponse.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 
 const getFlashcard = asyncHandler(async (req, res) => {});
@@ -10,7 +12,9 @@ const createFlashcard = asyncHandler(async (req, res) => {
     contents: prompt,
   });
 
-  console.log(response.text);
+  return res
+    .status(201)
+    .json(new ApiResponse(200, response.text, "AI WORKING"));
 });
 
 const editFlashcard = asyncHandler(async (req, res) => {});
