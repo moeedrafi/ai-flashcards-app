@@ -1,3 +1,5 @@
+import { asyncHandler } from "../utils/asyncHandler.js";
+
 const getDecks = asyncHandler(async (req, res) => {});
 
 const deleteDeck = asyncHandler(async (req, res) => {});
