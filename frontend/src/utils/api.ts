@@ -9,7 +9,7 @@ export const apiClient = async (
   const timeoutId = setTimeout(() => controller.abort(), 5000);
 
   try {
-    const response = await fetch(`${BASE_URL}/${endpoint}`, {
+    const response = await fetch(`${BASE_URL}${endpoint}`, {
       method,
       signal: controller.signal,
       credentials: "include",
@@ -42,7 +42,7 @@ export const apiFileClient = async (
   const timeoutId = setTimeout(() => controller.abort(), 10000);
 
   try {
-    const response = await fetch(`${BASE_URL}/${endpoint}`, {
+    const response = await fetch(`${BASE_URL}${endpoint}`, {
       body: formData,
       method: "POST",
       signal: controller.signal,

@@ -1,12 +1,18 @@
 import { useState } from "react";
+import { apiFileClient } from "@/utils/api";
 
 export const FileUpload = () => {
   const [filename, setFilename] = useState("");
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formData = new FormData();
     if (e.target.files) {
       const file = e.target.files[0];
       setFilename(file.name);
+      formData.append("file", e.target.files[0]);
     }
+
+    await apiFileClient("/api/v1/flashcard/generate", formData);
   };
 
   return (
@@ -21,9 +27,9 @@ export const FileUpload = () => {
         >
           <path
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
             d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
           />
         </svg>

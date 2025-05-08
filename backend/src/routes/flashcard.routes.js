@@ -8,7 +8,7 @@ import {
 
 const router = Router();
 
-router.route("/generate").post(createFlashcard);
+router.route("/generate").post(upload.single("file"), createFlashcard);
 router.route("/flashcard/:id").get(getFlashcard);
 router.route("/flashcard/:id").patch(editFlashcard);
 
