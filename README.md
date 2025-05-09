@@ -18,18 +18,6 @@ This project is an AI-powered flashcard generator built with React.js (frontend)
 - ⚡ Fast and responsive UI fully optimized for desktop and mobile devices
 - 🔐 Authentication: Secure and seamless auth with JWT
 
-- Responsive Layout: Fully optimized for desktop and mobile devices.
-- Home Page: Dynamic and interactive user feed.
-- Stories: Stories: Create, view, and manage stories in real-time using Optimistic UI.
-- Story Visibility: Control who can view specific stories.
-- Post Management: Add, update, and delete posts with images.
-- Post Interactions: Like and comment on posts in real-time using Optimistic UI.
-- Commenting System: Nested comments and threaded replies in real-time using Optimistic UI.
-- User Profile: View and update dynamic user data.
-- Friendship Management: Follow, unfollow, and block users in real-time using Optimistic UI.
-- Optimistic UI: Instant feedback for user actions without page reload.
-- Performance Optimization: Prisma indexes (@@index) on key fields like StoryViews ensure fast and efficient data retrieval.
-
 ## Installation & Setup
 
 1. Clone the repository:
@@ -41,12 +29,13 @@ This project is an AI-powered flashcard generator built with React.js (frontend)
    <pre>cd backend 
      npm install</pre>
 3. Set up environment variables for frontend and backend (create a .env file):
-   /backend
+
+   backend:
    <pre>PORT=8000
       MONGODB_URL=mongodb_url
       CORS_ORIGIN=*
       NODE_ENV=development</pre>
-   /frontend
+   frontend:
    <pre></pre>
 5. Run both frontend and backend:
    <pre>npm run dev</pre>
