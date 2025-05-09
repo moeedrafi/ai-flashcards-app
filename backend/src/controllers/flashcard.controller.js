@@ -1,9 +1,10 @@
 import fs from "fs";
-import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
 
-import { AI } from "../utils/gemini.js";
+import { extractChunks } from "../utils/pdf.js";
+import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
+import { generateFlashcards } from "../utils/gemini.js";
 
 const getFlashcard = asyncHandler(async (req, res) => {});
 
@@ -13,20 +14,21 @@ const createFlashcard = asyncHandler(async (req, res) => {
     throw new ApiError(400, "File is missing");
   }
 
-  const loader = new PDFLoader(filePath);
-  const docs = await loader.load();
-  console.log("Page two: ", docs[1].pageContent);
+  try {
+    const chunks = await extractChunks(filePath);
+    const flashcards = await generateFlashcards(chunks);
+    console.log(flashcards.flashcards);
 
-  fs.unlinkSync(filePath);
-
-  return res.status(201).json(new ApiResponse(200, {}, "AI WORKING"));
+    return res
+      .status(201)
+      .json(new ApiResponse(200, flashcards.flashcards, "AI WORKING"));
+  } catch (error) {
+    throw new ApiError(500, "Something went wrong while processing the file");
+  } finally {
+    fs.unlinkSync(filePath);
+  }
 });
 
 const editFlashcard = asyncHandler(async (req, res) => {});
 
 export { getFlashcard, createFlashcard, editFlashcard };
-
-// const response = await AI.models.generateContent({
-//   model: "gemini-2.0-flash",
-//   contents: prompt,
-// });
