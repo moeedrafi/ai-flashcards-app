@@ -25,18 +25,14 @@ export const apiClient = async <TRequest = unknown, TResponse = unknown>(
 
     clearTimeout(timeoutId);
 
+    if (!response.ok) throw new Error();
+
     const jsonResponse = await response.json();
-
-    if (!response.ok) {
-      throw new Error(jsonResponse.message || "Something went wrong");
-    }
-
     toast.success(jsonResponse.message);
     return jsonResponse as TResponse;
   } catch (error) {
     clearTimeout(timeoutId);
-    handleApiError(error);
-    throw error;
+    throw handleApiError(error);
   }
 };
 
