@@ -21,10 +21,10 @@ app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 app.use(express.static("public"));
 app.use(cookieParser());
 
-app.use(errorHandler);
-
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/decks", deckRouter);
 app.use("/api/v1/flashcard", flashcardRouter);
+
+app.use(errorHandler);
 
 export { app };
