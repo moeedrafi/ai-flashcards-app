@@ -1,10 +1,13 @@
+import { toast } from "react-toastify";
+
 const BASE_URL = "http://localhost:8000";
 
-export const apiClient = async (
+export const apiClient = async <TRequest = unknown, TResponse = unknown>(
   endpoint: string,
   method: "GET" | "POST" | "DELETE" | "PATCH",
+  data?: TRequest,
   options: RequestInit = {}
-) => {
+): Promise<TResponse> => {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 5000);
 
@@ -16,20 +19,24 @@ export const apiClient = async (
       headers: {
         "Content-Type": "application/json",
       },
+      body: data ? JSON.stringify(data) : undefined,
       ...options,
     });
 
     clearTimeout(timeoutId);
 
+    const jsonResponse = await response.json();
+
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      throw new Error(errorData.message || "API request failed.");
+      throw new Error(jsonResponse.message || "Something went wrong");
     }
 
-    return await response.json();
+    toast.success(jsonResponse.message);
+    return jsonResponse as TResponse;
   } catch (error) {
     clearTimeout(timeoutId);
-    throw handleApiError(error);
+    handleApiError(error);
+    throw error;
   }
 };
 
@@ -64,10 +71,10 @@ export const apiFileClient = async (
   }
 };
 
-const handleApiError = (error: unknown): Error => {
+const handleApiError = (error: unknown) => {
   if (error instanceof Error) {
-    return error;
+    toast.error(error.message || "An unexpected error occurred.");
   } else {
-    return new Error("Something went wrong!");
+    toast.error("Something went wrong. Please try again.");
   }
 };
