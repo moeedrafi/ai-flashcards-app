@@ -35,6 +35,7 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 
   const user = await User.create({ email, password });
+  const { accessToken } = await generateAccessAndRefreshToken(user._id);
 
   const {
     password: _,
@@ -44,6 +45,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   return res
     .status(201)
+    .cookie("accessToken", accessToken, OPTIONS)
     .json(
       new ApiResponse(
         200,
@@ -69,9 +71,7 @@ const loginUser = asyncHandler(async (req, res) => {
     throw new ApiError(401, "Invalid user credentials");
   }
 
-  const { accessToken, refreshToken } = await generateAccessAndRefreshToken(
-    user._id
-  );
+  const { accessToken } = await generateAccessAndRefreshToken(user._id);
 
   const {
     password: _,
@@ -82,7 +82,6 @@ const loginUser = asyncHandler(async (req, res) => {
   res
     .status(200)
     .cookie("accessToken", accessToken, OPTIONS)
-    .cookie("refreshToken", refreshToken, OPTIONS)
     .json(
       new ApiResponse(
         200,
