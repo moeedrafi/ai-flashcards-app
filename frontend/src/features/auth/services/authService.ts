@@ -42,3 +42,16 @@ export const loginService = async (data: LoginSchema) => {
     console.log(error);
   }
 };
+
+export const checkAuth = async () => {
+  try {
+    return await apiClient<unknown, Response>(
+      "/api/v1/users/check-auth",
+      "GET",
+      undefined,
+      { showSuccessToast: false, showErrorToast: false }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};

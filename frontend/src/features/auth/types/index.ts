@@ -12,7 +12,7 @@ export const loginSchema = z.object({
 });
 export type LoginSchema = z.infer<typeof loginSchema>;
 
-type User = {
+export type User = {
   _id: string;
   email: string;
 };
@@ -20,4 +20,5 @@ type User = {
 export type Response = {
   message: string;
   data: User;
+  statusCode: number;
 };

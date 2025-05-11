@@ -6,10 +6,18 @@ export const apiClient = async <TRequest = unknown, TResponse = unknown>(
   endpoint: string,
   method: "GET" | "POST" | "DELETE" | "PATCH",
   data?: TRequest,
-  options: RequestInit = {}
+  options: RequestInit & {
+    showSuccessToast?: boolean;
+    showErrorToast?: boolean;
+  } = {}
 ): Promise<TResponse> => {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 5000);
+  const {
+    showSuccessToast = true,
+    showErrorToast = true,
+    ...fetchOptions
+  } = options;
 
   try {
     const response = await fetch(`${BASE_URL}${endpoint}`, {
@@ -20,7 +28,7 @@ export const apiClient = async <TRequest = unknown, TResponse = unknown>(
         "Content-Type": "application/json",
       },
       body: data ? JSON.stringify(data) : undefined,
-      ...options,
+      ...fetchOptions,
     });
 
     clearTimeout(timeoutId);
@@ -28,11 +36,16 @@ export const apiClient = async <TRequest = unknown, TResponse = unknown>(
     if (!response.ok) throw new Error();
 
     const jsonResponse = await response.json();
-    toast.success(jsonResponse.message);
+    if (showSuccessToast) {
+      toast.success(jsonResponse.message);
+    }
     return jsonResponse as TResponse;
   } catch (error) {
     clearTimeout(timeoutId);
-    throw handleApiError(error);
+    if (showErrorToast) {
+      handleApiError(error);
+    }
+    throw error;
   }
 };
 
