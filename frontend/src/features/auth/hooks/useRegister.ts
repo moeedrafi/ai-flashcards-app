@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { registerService } from "@/features/auth/services/authService";
 import { RegisterSchema, registerSchema } from "@/features/auth/types/index";
 
 export const useRegister = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -17,6 +19,7 @@ export const useRegister = () => {
 
   const onSubmit = async (data: RegisterSchema) => {
     await registerService(data);
+    navigate("/flashcards");
   };
 
   return {
