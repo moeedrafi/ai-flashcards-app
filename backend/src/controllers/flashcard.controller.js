@@ -17,11 +17,9 @@ const createFlashcard = asyncHandler(async (req, res) => {
   try {
     const chunks = await extractChunks(filePath);
     const flashcards = await generateFlashcards(chunks);
-    console.log(flashcards.flashcards);
+    console.log(flashcards);
 
-    return res
-      .status(201)
-      .json(new ApiResponse(200, flashcards.flashcards, "AI WORKING"));
+    return res.status(201).json(new ApiResponse(200, flashcards, "AI WORKING"));
   } catch (error) {
     throw new ApiError(500, "Something went wrong while processing the file");
   } finally {

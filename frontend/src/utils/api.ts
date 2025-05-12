@@ -55,7 +55,7 @@ export const apiFileClient = async (
   options: RequestInit = {}
 ) => {
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 10000);
+  const timeoutId = setTimeout(() => controller.abort(), 100000);
 
   try {
     const response = await fetch(`${BASE_URL}${endpoint}`, {

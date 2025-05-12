@@ -1,4 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
+import { systemPrompt } from "../constants.js";
 
 const AI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
@@ -20,7 +21,7 @@ export const generateFlashcards = async (chunks) => {
 
     return JSON.parse(cleanedText);
   } catch (error) {
-    console.log("Failed to generate Flashcards");
+    console.log(error);
     throw error;
   }
 };
