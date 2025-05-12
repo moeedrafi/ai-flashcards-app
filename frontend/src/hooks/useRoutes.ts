@@ -14,6 +14,11 @@ export const useRoutes = () => {
       href: "/flashcards",
       active: location.pathname === "/flashcards",
     },
+    {
+      label: "Features",
+      href: "/",
+      active: location.pathname === "#features",
+    },
   ];
 
   return routes;

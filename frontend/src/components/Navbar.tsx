@@ -1,62 +1,52 @@
 import { Link } from "react-router";
 import { useRoutes } from "@/hooks/useRoutes";
 import { useAuth } from "@/context/AuthContext";
+import { ProfilePopover } from "./ProfilePopover";
 
 export const Navbar = () => {
   const routes = useRoutes();
   const { isLoggedIn } = useAuth();
 
   return (
-    <div className="px-8 py-4 sm:px-16 md:px-32">
-      <nav className="flex items-center justify-between relative">
-        <Link to="/" className="text-xl z-10 font-bold">
+    <header className="w-full sticky top-0 left-0 z-50 bg-custom-black py-3 px-4 md:px-10 flex items-center border border-[#222]">
+      <div className="flex-1 flex items-center gap-2">
+        <span className="text-custom-white font-extrabold text-xl tracking-tight">
           LOGO
-        </Link>
+        </span>
+      </div>
 
-        <div
-          className={`hidden lg:flex justify-center ${
-            isLoggedIn ? "pl-0" : "pl-52"
-          }`}
-        >
-          <div className="flex items-center space-x-6">
-            {routes.map(({ active, href, label }) => (
-              <Link
-                key={href}
-                to={href}
-                className={`${
-                  active && "underline"
-                } hover:underline underline-offset-2`}
-              >
-                {label}
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {isLoggedIn ? (
-          <>
-            <img
-              src="/noAvatar.png"
-              width={48}
-              height={48}
-              className="w-12 h-12 border rounded-full object-contain"
-            />
-          </>
-        ) : (
-          <div className="space-x-4">
-            <Link to="/login">
-              <button className="px-3 py-2.5 rounded-lg bg-custom-primary text-custom-white cursor-pointer hover:bg-custom-ascent">
-                Sign In
-              </button>
-            </Link>
-            <Link to="/register">
-              <button className="hidden md:inline border-2 px-3 py-2 rounded-xl border-custom-primary cursor-pointer hover:bg-sky-50">
-                Create your account
-              </button>
-            </Link>
-          </div>
-        )}
+      <nav className="hidden sm:flex gap-5">
+        {routes.map(({ href, label, active }) => (
+          <Link
+            key={label}
+            to={href}
+            className={`text-custom-white font-medium text-sm px-2 py-1 ${
+              active && "underline underline-offset-4"
+            }`}
+          >
+            {label}
+          </Link>
+        ))}
       </nav>
-    </div>
+
+      {isLoggedIn ? (
+        <div className="flex-1 flex justify-end">
+          <ProfilePopover />
+        </div>
+      ) : (
+        <div className="flex-1 flex items-center justify-end gap-3">
+          <Link to="/login">
+            <button className="px-3 py-2 bg-custom-primary text-custom-white cursor-pointer hover:bg-custom-ascent">
+              Sign In
+            </button>
+          </Link>
+          <Link to="/register">
+            <button className="hidden px-3 py-2 text-custom-white md:inline border-[1px] border-custom-primary cursor-pointer hover:bg-custom-ascent">
+              Create your account
+            </button>
+          </Link>
+        </div>
+      )}
+    </header>
   );
 };
