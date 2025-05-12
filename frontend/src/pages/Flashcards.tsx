@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Heading } from "@/components/Heading";
-import { FileUpload } from "@/components/flashcards/FileUpload";
-import { FlashcardDeck } from "@/components/flashcards/FlashcardDeck";
+import { FileUpload } from "@/features/flashcards/components/FileUpload";
+import { FlashcardDeck } from "@/features/flashcards/components/FlashcardDeck";
 
 const Flashcards = () => {
   return (
