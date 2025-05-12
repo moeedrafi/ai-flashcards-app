@@ -5,6 +5,7 @@ import {
   LoginSchema,
   registerSchema,
   RegisterSchema,
+  loginSchema,
 } from "@/features/auth/types/index";
 
 export const registerService = async (data: RegisterSchema) => {
@@ -26,14 +27,14 @@ export const registerService = async (data: RegisterSchema) => {
 };
 
 export const loginService = async (data: LoginSchema) => {
-  const validatedFields = registerSchema.safeParse(data);
+  const validatedFields = loginSchema.safeParse(data);
   if (!validatedFields.success) {
     toast.error("Please fix validation errors before submitting.");
     return;
   }
 
   try {
-    await apiClient<LoginSchema, Response>(
+    return await apiClient<LoginSchema, Response>(
       "/api/v1/users/login",
       "POST",
       validatedFields.data
