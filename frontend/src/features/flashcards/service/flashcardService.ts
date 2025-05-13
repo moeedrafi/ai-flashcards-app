@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import { apiClient, apiFileClient } from "@/utils/api";
 import {
-  Response,
+  PostResponse,
   createFlashcardSchema,
   CreateFlashcardSchema,
 } from "@/features/flashcards/types/index";
@@ -18,7 +18,7 @@ export const createFlashcardsService = async (data: CreateFlashcardSchema) => {
   try {
     const deck = await apiClient<
       { title: string; description: string },
-      Response
+      PostResponse
     >("/api/v1/deck/create", "POST", { title, description });
 
     const deckId = deck?.data?._id;

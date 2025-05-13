@@ -10,7 +10,7 @@ import { verifyJWT } from "../middleware/auth.middleware.js";
 
 const router = Router();
 
-router.route("/").get(getDeck);
+router.route("/").get(verifyJWT, getDeck);
 router.route("/create").post(verifyJWT, createDeck);
 router.route("/decks/:id").delete(deleteDeck);
 

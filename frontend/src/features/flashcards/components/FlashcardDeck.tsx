@@ -1,6 +1,11 @@
 import { Link } from "react-router";
 
-export const FlashcardDeck = () => {
+interface FlashcardDeckProps {
+  title: string;
+  description: string;
+}
+
+export const FlashcardDeck = ({ description, title }: FlashcardDeckProps) => {
   return (
     <Link
       to="/flashcards/1"
@@ -8,11 +13,8 @@ export const FlashcardDeck = () => {
     >
       <div className="flex flex-col justify-between h-full gap-5">
         <div className="space-y-2">
-          <h3 className="text-custom-black text-2xl font-semibold">Biology</h3>
-          <p className="text-sm text-gray-600">
-            Basic concepts in biology including cells, Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Voluptatem, Lorem ipsum
-          </p>
+          <h3 className="text-custom-black text-2xl font-semibold">{title}</h3>
+          <p className="text-sm text-gray-600">{description}</p>
         </div>
         <p className="text-sm text-gray-500">24 Cards</p>
       </div>

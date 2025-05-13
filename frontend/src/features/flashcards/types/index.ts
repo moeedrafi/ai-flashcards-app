@@ -12,13 +12,19 @@ export type Flashcard = {
   back: string;
 };
 
-type Deck = {
+export type Deck = {
   _id: string;
-  name: string;
+  title: string;
   description: string;
 };
 
-export type Response = {
+export type GetResponse = {
+  message: string;
+  data: Deck[];
+  statusCode: number;
+};
+
+export type PostResponse = {
   message: string;
   data: Deck;
   statusCode: number;
