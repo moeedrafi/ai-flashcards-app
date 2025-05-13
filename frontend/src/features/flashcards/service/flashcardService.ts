@@ -19,7 +19,7 @@ export const createFlashcardsService = async (data: CreateFlashcardSchema) => {
     const deck = await apiClient<
       { title: string; description: string },
       Response
-    >("/api/v1/deck", "POST", { title, description });
+    >("/api/v1/deck/create", "POST", { title, description });
 
     const deckId = deck?.data?._id;
     if (!deckId) {
@@ -30,7 +30,10 @@ export const createFlashcardsService = async (data: CreateFlashcardSchema) => {
     const formData = new FormData();
     formData.append("file", file);
 
-    const flashcards = await apiFileClient("/api/v1/flashcards", formData);
+    const flashcards = await apiFileClient(
+      "/api/v1/flashcards/generate",
+      formData
+    );
 
     return flashcards;
   } catch (error) {

@@ -22,8 +22,8 @@ app.use(express.static("public"));
 app.use(cookieParser());
 
 app.use("/api/v1/users", userRouter);
-app.use("/api/v1/decks", deckRouter);
-app.use("/api/v1/flashcard", flashcardRouter);
+app.use("/api/v1/deck", deckRouter);
+app.use("/api/v1/flashcards", flashcardRouter);
 
 app.use(errorHandler);
 
