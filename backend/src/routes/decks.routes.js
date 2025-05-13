@@ -1,14 +1,17 @@
 import { Router } from "express";
 import {
   deleteDeck,
-  getDecks,
+  createDeck,
+  getDeck,
   toggleShare,
   viewSharedDeck,
 } from "../controllers/decks.controller.js";
+import { verifyJWT } from "../middleware/auth.middleware.js";
 
 const router = Router();
 
-router.route("/decks").get(getDecks);
+router.route("/").get(getDeck);
+router.route("/create").post(verifyJWT, createDeck);
 router.route("/decks/:id").delete(deleteDeck);
 
 router.route("/decks/:id/share").delete(toggleShare);

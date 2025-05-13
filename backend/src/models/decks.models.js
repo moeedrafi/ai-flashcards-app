@@ -7,7 +7,7 @@ const deckSchema = new Schema(
       ref: "User",
       required: true,
     },
-    name: { type: String, required: true },
+    title: { type: String, required: true },
     description: { type: String },
     isPublic: { type: Boolean, default: false },
     shareId: { type: String, unique: true, sparse: true },
