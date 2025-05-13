@@ -2,7 +2,8 @@ import { FileUpload } from "@/features/flashcards/components/FileUpload";
 import { useCreateFlashcard } from "@/features/flashcards/hooks/useCreateFlashcard";
 
 export const FlashcardForm = () => {
-  const { errors, handleSubmit, isSubmitting, register } = useCreateFlashcard();
+  const { errors, handleSubmit, isSubmitting, register, setValue } =
+    useCreateFlashcard();
 
   return (
     <form
@@ -76,13 +77,13 @@ export const FlashcardForm = () => {
         >
           Upload PDF
         </label>
-        <FileUpload />
+        <FileUpload setValue={setValue} />
       </div>
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full px-4 py-2 bg-custom-black text-custom-white rounded-md hover:bg-custom-black/90 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+        className="w-full px-4 py-2 bg-custom-black text-custom-white rounded-md hover:bg-custom-black/90 transition-colors disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
       >
         {isSubmitting ? "Submitting..." : "Create Deck"}
       </button>

@@ -1,18 +1,21 @@
 import { useState } from "react";
-import { apiFileClient } from "@/utils/api";
+import { UseFormSetValue } from "react-hook-form";
 
-export const FileUpload = () => {
+import { CreateFlashcardSchema } from "@/features/flashcards/types/index";
+
+type FileUploadProps = {
+  setValue: UseFormSetValue<CreateFlashcardSchema>;
+};
+
+export const FileUpload = ({ setValue }: FileUploadProps) => {
   const [filename, setFilename] = useState("");
 
-  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const formData = new FormData();
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const file = e.target.files[0];
+      setValue("file", file);
       setFilename(file.name);
-      formData.append("file", e.target.files[0]);
     }
-
-    await apiFileClient("/api/v1/flashcard/generate", formData);
   };
 
   return (
