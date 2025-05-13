@@ -16,7 +16,7 @@ export const FileUpload = () => {
   };
 
   return (
-    <label className="flex flex-col items-center h-full justify-center w-full border-2 border-gray-400 border-dashed rounded-lg cursor-pointer bg-gray-200 hover:bg-gray-100">
+    <label className="flex flex-col items-center h-full justify-center w-full border-2 border-gray-400 border-dashed rounded-lg cursor-pointer bg-gray-100 hover:bg-gray-200">
       <div className="flex flex-col items-center justify-center pt-5 pb-6">
         <svg
           className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
