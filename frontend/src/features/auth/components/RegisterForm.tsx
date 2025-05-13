@@ -17,6 +17,7 @@ export const RegisterForm = () => {
           <input
             id="email"
             type="email"
+            autoComplete="on"
             placeholder="john@doe.com"
             {...register("email")}
             aria-invalid={!!errors.email}

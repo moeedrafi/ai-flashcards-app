@@ -39,7 +39,7 @@ export const FlashcardForm = () => {
 
       <div className="mb-6">
         <label
-          htmlFor="file"
+          htmlFor="dropzone-file"
           className="block text-sm text-gray-700 font-medium mb-1"
         >
           Upload PDF
