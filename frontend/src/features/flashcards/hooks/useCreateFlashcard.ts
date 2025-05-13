@@ -13,6 +13,7 @@ export const useCreateFlashcard = () => {
     handleSubmit,
     formState: { errors, isSubmitting },
     setValue,
+    reset,
   } = useForm<CreateFlashcardSchema>({
     defaultValues: { title: "", description: "" },
     resolver: zodResolver(createFlashcardSchema),
@@ -20,6 +21,7 @@ export const useCreateFlashcard = () => {
   });
 
   const onSubmit = async (data: CreateFlashcardSchema) => {
+    reset();
     const response = await createFlashcardsService(data);
     console.log(response);
     if (!response?.data) return;
