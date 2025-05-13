@@ -1,7 +1,8 @@
 import { toast } from "react-toastify";
 import { apiClient } from "@/utils/api";
 import {
-  Response,
+  User,
+  ApiResponse,
   LoginSchema,
   registerSchema,
   RegisterSchema,
@@ -16,7 +17,7 @@ export const registerService = async (data: RegisterSchema) => {
   }
 
   try {
-    await apiClient<RegisterSchema, Response>(
+    return await apiClient<RegisterSchema, ApiResponse<User>>(
       "/api/v1/users/register",
       "POST",
       validatedFields.data
@@ -34,7 +35,7 @@ export const loginService = async (data: LoginSchema) => {
   }
 
   try {
-    return await apiClient<LoginSchema, Response>(
+    return await apiClient<LoginSchema, ApiResponse<User>>(
       "/api/v1/users/login",
       "POST",
       validatedFields.data
@@ -46,7 +47,7 @@ export const loginService = async (data: LoginSchema) => {
 
 export const checkAuth = async () => {
   try {
-    return await apiClient<unknown, Response>(
+    return await apiClient<unknown, ApiResponse<User>>(
       "/api/v1/users/check-auth",
       "GET",
       undefined,

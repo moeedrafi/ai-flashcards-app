@@ -15,10 +15,12 @@ export type LoginSchema = z.infer<typeof loginSchema>;
 export type User = {
   _id: string;
   email: string;
+  createdAt: string;
+  updatedAt: string;
 };
 
-export type Response = {
+export type ApiResponse<T> = {
+  data: T;
   message: string;
-  data: User;
   statusCode: number;
 };

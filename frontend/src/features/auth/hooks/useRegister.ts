@@ -2,10 +2,12 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { useAuth } from "@/context/AuthContext";
 import { registerService } from "@/features/auth/services/authService";
 import { RegisterSchema, registerSchema } from "@/features/auth/types/index";
 
 export const useRegister = () => {
+  const { setIsLoggedIn, setUser } = useAuth();
   const navigate = useNavigate();
   const {
     register,
@@ -18,7 +20,12 @@ export const useRegister = () => {
   });
 
   const onSubmit = async (data: RegisterSchema) => {
-    await registerService(data);
+    const response = await registerService(data);
+    if (!response?.data) return;
+
+    setIsLoggedIn(true);
+    setUser(response.data);
+
     navigate("/flashcards");
   };
 

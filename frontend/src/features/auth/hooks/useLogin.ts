@@ -2,9 +2,9 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { useAuth } from "@/context/AuthContext";
 import { loginService } from "@/features/auth/services/authService";
 import { loginSchema, LoginSchema } from "@/features/auth/types/index";
-import { useAuth } from "@/context/AuthContext";
 
 export const useLogin = () => {
   const navigate = useNavigate();
