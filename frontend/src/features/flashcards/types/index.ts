@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { ApiResponse } from "@/utils/types";
 
 export const createFlashcardSchema = z.object({
   title: z.string().min(1),
@@ -18,14 +19,6 @@ export type Deck = {
   description: string;
 };
 
-export type GetResponse = {
-  message: string;
-  data: Deck[];
-  statusCode: number;
-};
-
-export type PostResponse = {
-  message: string;
-  data: Deck;
-  statusCode: number;
-};
+export type DeckResponse = ApiResponse<Deck>;
+export type DecksResponse = ApiResponse<Deck[]>;
+export type FlashcardsResponse = ApiResponse<Flashcard[]>;

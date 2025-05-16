@@ -1,3 +1,4 @@
+import { ApiResponse } from "@/utils/types";
 import { z } from "zod";
 
 export const registerSchema = z.object({
@@ -15,12 +16,8 @@ export type LoginSchema = z.infer<typeof loginSchema>;
 export type User = {
   _id: string;
   email: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt?: string;
+  updatedAt?: string;
 };
 
-export type ApiResponse<T> = {
-  data: T;
-  message: string;
-  statusCode: number;
-};
+export type UserResponse = ApiResponse<User>;

@@ -1,14 +1,19 @@
 import { Link } from "react-router";
 
 interface FlashcardDeckProps {
+  id: string;
   title: string;
   description: string;
 }
 
-export const FlashcardDeck = ({ description, title }: FlashcardDeckProps) => {
+export const FlashcardDeck = ({
+  id,
+  description,
+  title,
+}: FlashcardDeckProps) => {
   return (
     <Link
-      to="/flashcards/1"
+      to={`/flashcards/${id}`}
       className="p-6 bg-custom-primary/30 border border-custom-primary rounded-lg duration-300 transition-all hover:shadow-md hover:-translate-y-1"
     >
       <div className="flex flex-col justify-between h-full gap-5">
