@@ -28,6 +28,7 @@ export const createFlashcardsService = async (data: CreateFlashcardSchema) => {
     }
 
     const formData = new FormData();
+    formData.append("deckId", deckId);
     formData.append("file", file);
 
     const flashcards = await apiFileClient(
