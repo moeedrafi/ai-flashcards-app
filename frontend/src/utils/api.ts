@@ -73,7 +73,9 @@ export const apiFileClient = async (
       throw new Error(errorData.message || "File Upload Failed.");
     }
 
-    return await response.json();
+    const jsonResponse = await response.json();
+    toast.success(jsonResponse.message);
+    return jsonResponse;
   } catch (error) {
     clearTimeout(timeoutId);
     throw handleApiError(error);

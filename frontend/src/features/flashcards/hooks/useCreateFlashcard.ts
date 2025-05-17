@@ -8,8 +8,10 @@ import {
   Flashcard,
 } from "@/features/flashcards/types/index";
 import { createFlashcardsService } from "@/features/flashcards/service/flashcardService";
+import { useDeck } from "@/context/DeckContext";
 
 export const useCreateFlashcard = () => {
+  const { setDecks } = useDeck();
   const [flashcards, setFlashcards] = useState<Flashcard[]>();
   const {
     register,
@@ -28,6 +30,7 @@ export const useCreateFlashcard = () => {
     if (!response?.deck || !response.flashcards) return;
     reset();
 
+    setDecks((prev) => [response.deck, ...prev]);
     setFlashcards(response.flashcards);
   };
 
