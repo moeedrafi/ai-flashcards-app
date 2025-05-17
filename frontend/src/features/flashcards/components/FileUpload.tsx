@@ -1,15 +1,17 @@
-import { useState } from "react";
 import { UseFormSetValue } from "react-hook-form";
-
 import { CreateFlashcardDeckSchema } from "@/features/flashcards/types/index";
 
 type FileUploadProps = {
+  filename: string;
+  setFilename: React.Dispatch<React.SetStateAction<string>>;
   setValue: UseFormSetValue<CreateFlashcardDeckSchema>;
 };
 
-export const FileUpload = ({ setValue }: FileUploadProps) => {
-  const [filename, setFilename] = useState("");
-
+export const FileUpload = ({
+  setValue,
+  filename,
+  setFilename,
+}: FileUploadProps) => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const file = e.target.files[0];

@@ -12,6 +12,7 @@ import { useDeck } from "@/context/DeckContext";
 
 export const useCreateFlashcard = () => {
   const { setDecks } = useDeck();
+  const [filename, setFilename] = useState("");
   const [flashcards, setFlashcards] = useState<Flashcard[]>();
   const {
     register,
@@ -30,12 +31,15 @@ export const useCreateFlashcard = () => {
     if (!response?.deck || !response.flashcards) return;
     reset();
 
+    setFilename("");
     setDecks((prev) => [response.deck, ...prev]);
     setFlashcards(response.flashcards);
   };
 
   return {
     flashcards,
+    filename,
+    setFilename,
     register,
     handleSubmit: handleSubmit(onSubmit),
     isSubmitting,

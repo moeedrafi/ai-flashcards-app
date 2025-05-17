@@ -2,8 +2,15 @@ import { FileUpload } from "@/features/flashcards/components/FileUpload";
 import { useCreateFlashcard } from "@/features/flashcards/hooks/useCreateFlashcard";
 
 export const FlashcardForm = () => {
-  const { errors, handleSubmit, isSubmitting, register, setValue } =
-    useCreateFlashcard();
+  const {
+    errors,
+    handleSubmit,
+    isSubmitting,
+    register,
+    setValue,
+    filename,
+    setFilename,
+  } = useCreateFlashcard();
 
   return (
     <form
@@ -77,7 +84,11 @@ export const FlashcardForm = () => {
         >
           Upload PDF
         </label>
-        <FileUpload setValue={setValue} />
+        <FileUpload
+          filename={filename}
+          setFilename={setFilename}
+          setValue={setValue}
+        />
       </div>
 
       <button
