@@ -22,8 +22,8 @@ export const DeckProvider: React.FC<{ children: React.ReactNode }> = ({
       const decks = await fetchDecks();
       if (!decks?.data) return;
       setDecks(decks.data);
-      setIsLoading(false);
     };
+    setIsLoading(false);
 
     getDecks();
   }, []);
