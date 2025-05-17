@@ -24,16 +24,13 @@ const Flashcards = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Flashcard */}
-          <div
-            className="h-64 perspective-[1000px]"
-            onClick={() => setIsFlipped((prev) => !prev)}
-          >
+          <div className="h-64" onClick={() => setIsFlipped((prev) => !prev)}>
             <div
               className={`relative h-full transition-transform duration-500 transform-3d ${
                 isFlipped ? "rotate-y-180" : ""
               }`}
             >
-              <div className="absolute w-full h-full backface-hidden bg-custom-white rounded-lg shadow-md p-6 flex flex-col">
+              <div className="absolute w-full h-full backface-hidden bg-custom-white rounded-lg shadow-md p-6 flex flex-col rotate-y-180">
                 <p className="text-gray-500 text-sm mb-2">Answer</p>
                 <div className="flex-1 flex items-center justify-center">
                   <h3 className="text-custom-black text-lg font-medium">
