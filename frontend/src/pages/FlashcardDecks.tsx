@@ -1,10 +1,17 @@
 import { Navbar } from "@/components/Navbar";
 import { Heading } from "@/components/Heading";
-import { Deck } from "@/features/flashcards/types";
+
+import { useDeck } from "@/context/DeckContext";
 import { FlashcardDeck } from "@/features/flashcards/components/FlashcardDeck";
 import { FlashcardForm } from "@/features/flashcards/components/FlashcardForm";
 
-const FlashcardDecks = ({ decks }: { decks: Deck[] }) => {
+const FlashcardDecks = () => {
+  const { decks, isLoading } = useDeck();
+
+  if (isLoading) {
+    return <p>LOADING....</p>;
+  }
+
   return (
     <section className="min-h-screen space-y-8">
       <Navbar />

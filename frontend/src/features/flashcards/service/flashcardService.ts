@@ -6,6 +6,7 @@ import {
   DeckResponse,
   CreateFlashcardDeckSchema,
   createFlashcardDeckSchema,
+  DecksResponse,
 } from "@/features/flashcards/types/index";
 
 export const createFlashcardsService = async (
@@ -41,6 +42,19 @@ export const createFlashcardsService = async (
     );
 
     return { deck: deck.data, flashcards: flashcards.data as Flashcard[] };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchDecks = async () => {
+  try {
+    return await apiClient<unknown, DecksResponse>(
+      "/api/v1/deck",
+      "GET",
+      undefined,
+      { showSuccessToast: false, showErrorToast: false }
+    );
   } catch (error) {
     console.log(error);
   }
