@@ -2,7 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Heading } from "@/components/Heading";
 
 import { useDeck } from "@/context/DeckContext";
-import { FlashcardDeck } from "@/features/flashcards/components/FlashcardDeck";
+import { DeckLists } from "@/features/flashcards/components/DeckLists";
 import { FlashcardForm } from "@/features/flashcards/components/FlashcardForm";
 
 const FlashcardDecks = () => {
@@ -27,17 +27,8 @@ const FlashcardDecks = () => {
           <FlashcardForm />
         </div>
 
-        {/* CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {decks.map((deck) => (
-            <FlashcardDeck
-              key={deck._id}
-              id={deck._id}
-              title={deck.title}
-              description={deck.description}
-            />
-          ))}
-        </div>
+        {/* LIST */}
+        <DeckLists decks={decks} />
       </div>
     </section>
   );
