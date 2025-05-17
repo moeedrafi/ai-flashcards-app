@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { UseFormSetValue } from "react-hook-form";
 
-import { CreateFlashcardSchema } from "@/features/flashcards/types/index";
+import { CreateFlashcardDeckSchema } from "@/features/flashcards/types/index";
 
 type FileUploadProps = {
-  setValue: UseFormSetValue<CreateFlashcardSchema>;
+  setValue: UseFormSetValue<CreateFlashcardDeckSchema>;
 };
 
 export const FileUpload = ({ setValue }: FileUploadProps) => {
