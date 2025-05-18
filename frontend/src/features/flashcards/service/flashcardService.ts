@@ -7,6 +7,7 @@ import {
   CreateFlashcardDeckSchema,
   createFlashcardDeckSchema,
   DecksResponse,
+  GetFlashcardsResponse,
 } from "@/features/flashcards/types/index";
 
 export const createFlashcardsService = async (
@@ -51,6 +52,19 @@ export const fetchDecks = async () => {
   try {
     return await apiClient<unknown, DecksResponse>(
       "/api/v1/deck",
+      "GET",
+      undefined,
+      { showSuccessToast: false, showErrorToast: false }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getFlashcards = async (deckId: string) => {
+  try {
+    return await apiClient<unknown, GetFlashcardsResponse>(
+      `/api/v1/flashcards/${deckId}`,
       "GET",
       undefined,
       { showSuccessToast: false, showErrorToast: false }

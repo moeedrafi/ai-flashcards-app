@@ -37,3 +37,4 @@ export type FlashcardsResponse = ApiResponse<{
   deck: Deck;
   flashcards: Flashcard[];
 }>;
+export type GetFlashcardsResponse = ApiResponse<Flashcard[]>;

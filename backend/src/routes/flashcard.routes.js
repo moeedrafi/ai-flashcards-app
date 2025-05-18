@@ -5,10 +5,12 @@ import {
   getFlashcard,
   createFlashcard,
   editFlashcard,
+  getFlashcards,
 } from "../controllers/flashcard.controller.js";
 
 const router = Router();
 
+router.route("/:deckId").get(getFlashcards);
 router
   .route("/generate")
   .post(verifyJWT, upload.single("file"), createFlashcard);

@@ -9,6 +9,19 @@ import { Flashcard } from "../models/flashcard.models.js";
 
 const getFlashcard = asyncHandler(async (req, res) => {});
 
+const getFlashcards = asyncHandler(async (req, res) => {
+  const { deckId } = req.params;
+  if (!deckId) {
+    throw new ApiError(400, "Deck is missing");
+  }
+
+  const flashcards = await Flashcard.find({ deckId });
+
+  return res
+    .status(201)
+    .json(new ApiResponse(200, flashcards, "Flashcards Fetched"));
+});
+
 const createFlashcard = asyncHandler(async (req, res) => {
   const filePath = req.file?.path;
   const deckId = req.body.deckId;
@@ -42,4 +55,4 @@ const createFlashcard = asyncHandler(async (req, res) => {
 
 const editFlashcard = asyncHandler(async (req, res) => {});
 
-export { getFlashcard, createFlashcard, editFlashcard };
+export { getFlashcard, createFlashcard, editFlashcard, getFlashcards };
