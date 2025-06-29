@@ -40,7 +40,7 @@ const createFlashcard = asyncHandler(async (req, res) => {
 
     return res
       .status(201)
-      .json(new ApiResponse(200, savedFlashcards, "AI WORKING"));
+      .json(new ApiResponse(200, savedFlashcards, "Flashcards Generated"));
   } catch (error) {
     throw new ApiError(500, "Something went wrong while processing the file");
   }
