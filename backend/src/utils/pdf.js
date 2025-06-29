@@ -1,10 +1,11 @@
 import fs from "fs";
-import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
+import { PDFLoader } from "@langchain/community/document_loaders/blob/pdf";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 
-export const extractChunks = async (filePath) => {
+export const extractChunks = async (buffer) => {
   try {
-    const loader = new PDFLoader(filePath);
+    const blob = new Blob([buffer], { type: "application/pdf" });
+    const loader = new PDFLoader(blob);
     const docs = await loader.load();
 
     const splitter = new RecursiveCharacterTextSplitter({

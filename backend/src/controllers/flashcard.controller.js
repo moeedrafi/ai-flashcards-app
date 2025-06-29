@@ -1,5 +1,3 @@
-import fs from "fs";
-
 import { extractChunks } from "../utils/pdf.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
@@ -23,17 +21,14 @@ const getFlashcards = asyncHandler(async (req, res) => {
 });
 
 const createFlashcard = asyncHandler(async (req, res) => {
-  const filePath = req.file?.path;
+  const pdfBuffer = req.file?.buffer;
   const deckId = req.body.deckId;
-  if (!filePath) {
-    throw new ApiError(400, "File is missing");
-  }
-  if (!deckId) {
-    throw new ApiError(400, "Couldn't find deck");
-  }
+
+  if (!pdfBuffer) throw new ApiError(400, "File is missing");
+  if (!deckId) throw new ApiError(400, "Couldn't find deck");
 
   try {
-    const chunks = await extractChunks(filePath);
+    const chunks = await extractChunks(pdfBuffer);
     const flashcards = await generateFlashcards(chunks);
     const flashcardToInsert = flashcards.flashcards.map((card) => ({
       deckId,
