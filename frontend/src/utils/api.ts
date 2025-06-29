@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = import.meta.env.DEV ? "/api" : import.meta.env.VITE_API_URL;
 
 export const apiClient = async <TRequest = unknown, TResponse = unknown>(
   endpoint: string,
