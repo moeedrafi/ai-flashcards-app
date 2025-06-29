@@ -1,10 +1,10 @@
-import { PDFLoader } from "@langchain/community/document_loaders/blob/pdf";
+import { WebPDFLoader } from "@langchain/community/document_loaders/web/pdf";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 
 export const extractChunks = async (buffer) => {
   try {
     const blob = new Blob([buffer], { type: "application/pdf" });
-    const loader = new PDFLoader(blob);
+    const loader = new WebPDFLoader(blob);
     const docs = await loader.load();
 
     const splitter = new RecursiveCharacterTextSplitter({
@@ -14,6 +14,7 @@ export const extractChunks = async (buffer) => {
 
     return await splitter.splitDocuments(docs);
   } catch (error) {
-    console.log(error);
+    console.error("Error extracting chunks from PDF buffer:", err);
+    throw err;
   }
 };
