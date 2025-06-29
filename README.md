@@ -1,7 +1,8 @@
-# 🧠 AI Flashcards App
+# 🧠 AI Flashcards App - In Progress
 
 This project is an AI-powered flashcard generator built with React.js (frontend) and Express.js (backend). Users can upload PDF learning materials, and the app automatically extracts content, chunks it using LangChain, and sends it to a Gemini Pro model to generate useful flashcards for studying. Perfect for students, self-learners, and educators looking to automate their revision process.
 
+### Video
 https://www.loom.com/share/a87d38b9a6d0413ba00180260d38d90b?sid=1833da04-cbb4-42a0-9ff6-c40ef69ea2d2
 
 ## Tech Stack
