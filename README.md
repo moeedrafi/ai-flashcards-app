@@ -28,7 +28,10 @@ This project is an AI-powered flashcard generator built with React.js (frontend)
 
 - Loading UI
 - Email Verification
-- Fetching Flashcard
+- Fetching Flashcard Controller
+- Deleting Flashcard Controller
+- Adding custom Flashcards
+- Mode: Study + Quiz Mode
 
 ## Installation & Setup
 
