@@ -48,8 +48,6 @@ const createFlashcard = asyncHandler(async (req, res) => {
       .json(new ApiResponse(200, savedFlashcards, "AI WORKING"));
   } catch (error) {
     throw new ApiError(500, "Something went wrong while processing the file");
-  } finally {
-    fs.unlinkSync(filePath);
   }
 });
 
