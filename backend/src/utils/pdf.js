@@ -1,4 +1,3 @@
-import fs from "fs";
 import { PDFLoader } from "@langchain/community/document_loaders/blob/pdf";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 
@@ -15,6 +14,6 @@ export const extractChunks = async (buffer) => {
 
     return await splitter.splitDocuments(docs);
   } catch (error) {
-    fs.unlinkSync(filePath);
+    console.log(error);
   }
 };
