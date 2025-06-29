@@ -18,6 +18,18 @@ This project is an AI-powered flashcard generator built with React.js (frontend)
 - ⚡ Fast and responsive UI fully optimized for desktop and mobile devices
 - 🔐 Authentication: Secure and seamless auth with JWT
 
+## Things I Learned
+
+- Integrating Gemini API
+- LangChain for Document Parsing
+- Hosting on Vercel and Render
+
+## Pending
+
+- Loading UI
+- Email Verification
+- Fetching Flashcard
+
 ## Installation & Setup
 
 1. Clone the repository:
